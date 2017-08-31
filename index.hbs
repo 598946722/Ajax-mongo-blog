@@ -1,0 +1,78 @@
+	    <aside>
+	    	<h3>归档</h3>
+	    	<ul>
+	    		<li><a href="">2012年02月</a></li>
+	    		<li><a href="">2012年03月</a></li>
+	    		<li><a href="">2012年04月</a></li>
+	    		<li><a href="">2012年05月</a></li>
+				<li><a href="">2012年06月</a></li>
+				<li><a href="">2012年07月</a></li>
+    	        <li><a href="">2012年08月</a></li>
+	    	</ul>
+	    	<div class="loginNow fr">
+	    		立即登录
+	    	</div>
+			<div class="registerNow fl">
+	    		立即注册
+	    	</div>
+	    </aside>
+		<div class="content">
+		    <ul class="artList">
+		        {{#each list}}
+				<li>
+					<a class="img" href="/list/?search={{artTit}}">
+						<img src="images/upload/test.png" alt="{{artTit}}">
+					</a>	
+					<div class="artDetail">
+						<h4 class="artTit">
+							{{artTit}}
+						</h4>
+						<span class="des">
+							{{artDes}}...&nbsp;&nbsp;<a class="mores" href="/list/?search={{artTit}}">[查看全文]</a>
+						</span>
+						<div class="aboutArt">
+							<span>作者：{{artAuthor}}</span>&nbsp;&nbsp;
+							<span>发表时间：{{artDate}}</span>&nbsp;&nbsp;
+							<span>阅读量：{{artCount}}</span>
+						</div>
+					</div>																	
+				</li>
+				{{/each}}
+	
+			</ul>	
+			
+			<div class="page">
+				<button class="prev">上一页</button>
+				<ul>
+				    
+				    {{#each pages}}
+					    <li><a href="/?page={{this}}">{{this}}</a></li>
+					{{/each}}
+
+				</ul>
+				<button class="next">下一页</button>
+				<span>跳转到第</span>
+				<div class="inp">
+					<input type="text" placeholder="1" class="pagenum">
+				</div>
+				<span>页</span>
+				<button class="loadPage">确定</button>
+			</div>										
+		</div>	
+		<script src="js/page.js"></script>								
+
+
+
+{{!-- for(var i = 0 ; i < 20 ; i ++ )
+{
+	db.ulist.insert(
+		{
+			'artTit':'习近平带领我们走过的这不平凡五年',
+			'artDes':'2017年7月26日至27日，习近平在省部级主要领导干部“学习习近平总书记重要讲话精神，迎接党的十九大”专题研讨班上发表重要讲话，深刻阐述了新的历史条件下...',
+			'artAuthor':'admin',
+			'artData':'2017-10-09',
+			'artCount':'200'
+		})
+} --}}
+
+{{!-- for (var i = 0; i < 20; i++) {db.ulist.insert({'artTit': '习近平带领我们走过的这不平凡五年','artDes': '2017年7月26日至27日，习近平在省部级主要领导干部“学习习近平总书记重要讲话精神，迎接党的十九大”专题研讨班上发表重要讲话，深刻阐述了新的历史条件下...','artAuthor': 'admin','artData': '2017-10-09','artCount': '200' })} --}}

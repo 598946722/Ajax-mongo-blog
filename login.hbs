@@ -1,0 +1,61 @@
+
+	<div class="formArea">
+		<div class="fa-tit">用户登录</div>
+		<div class="fa-con">
+		    <div class="inp-group">
+			    <label for="">账号：</label>
+			    <div class="inp">
+			    	<input type="text" placeholder="请输入您的账号" class='uname'>
+			    </div>
+			</div>
+			
+		    <div class="inp-group">
+			    <label for="">密码：</label>
+			    <div class="inp">
+			    	<input type="text" placeholder="请输入您的密码" class='upwd'>
+			    </div>
+			</div>	
+			<div class="inp-group bts fr">
+			    <button class="btn green fr">立即登陆</button>
+			</div>
+			<div class="inp-group bts fl">
+			    <button class="btn green register ">立即注册</button>
+			</div>		
+		</div>
+	</div>
+<script>
+$(function(){
+$("header").hide();	
+$("footer").hide();		
+})	
+
+</script>
+<script>
+function el(name){
+	return document.querySelector(name);
+}	
+var fa = el('.formArea');
+	
+fa.style.marginTop = - fa.clientHeight/2 + "px";	
+window.onresize = function(){
+	fa.style.marginTop = - fa.clientHeight/2 + "px";	
+}	
+$(".bts.fr").click(function(){
+        var data = {
+            'uname': $(".uname").val(),
+            'upwd': $('.upwd').val()
+        }
+        $.post('/login', data, function(data){
+           console.log(data); // 没有任何数据传递
+           if(data == 'ok'){
+               alert('登陆成功');
+               window.location.href = '/'
+           } else {
+               alert('您的账号不存在！');
+           };
+        });
+    })
+	$('.bts.fl').click(function(){
+		 window.location.href = '/register'
+	})
+</script>

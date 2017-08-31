@@ -1,0 +1,58 @@
+
+	<div class="formArea">
+		<div class="fa-tit">用户注册</div>
+		<div class="fa-con">
+		    <div class="inp-group">
+			    <label for="">账号：</label>
+			    <div class="inp">
+			    	<input type="text" placeholder="请输入您想注册的账号" class='uname'>
+			    </div>
+			</div>
+			
+		    <div class="inp-group">
+			    <label for="">密码：</label>
+			    <div class="inp">
+			    	<input type="text" placeholder="请输入您想注册的密码" class='upwd'>
+			    </div>
+			</div>	
+			<div class="inp-group bts">
+			    <button class="btn green fr">立即注册</button>
+			</div>		
+		</div>
+	</div>
+<script>
+$(function(){
+$("header").hide();	
+$("footer").hide();		
+})	
+
+</script>
+<script>
+function el(name){
+	return document.querySelector(name);
+}	
+var fa = el('.formArea');
+	
+fa.style.marginTop = - fa.clientHeight/2 + "px";	
+window.onresize = function(){
+	fa.style.marginTop = - fa.clientHeight/2 + "px";	
+}
+
+
+    $(".bts").click(function(){
+        var data = {
+            'uname': $(".uname").val(),
+            'upwd': $('.upwd').val()
+        }
+        $.post('/register',data, function(data){  
+            console.log(data);
+            if(data == 'ok'){
+               alert('注册成功');
+               window.location.href = '/login'
+           } else {
+               alert('注册失败！');
+           };
+            
+        });
+    })	
+</script>
